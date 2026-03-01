@@ -1,15 +1,8 @@
 import React from "react";
 
 /*
-React.memo here ensures:
-
-ListItem will ONLY re-render if:
-- item changes
-- deleteItem reference changes
-- likeItem reference changes
-
-Since deleteItem and likeItem use useCallback,
-their references stay stable.
+ListItem will ONLY re-render if the item changes
+thanks to memo.
 */
 
 const ListItem = React.memo(({ item, deleteItem, likeItem }) => {

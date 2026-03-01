@@ -12,15 +12,14 @@ export default function CounterSection() {
     <div>
       <h2>Counter Section</h2>
 
-      {/* Only this part depends on state */}
+      {/* This will need to re-render */}
       <label>Count: {count}</label>
       <button onClick={() => setCount(count + 1)}>
         Increment
       </button>
 
-      {/* These components DO NOT receive props
-         and are wrapped with React.memo,
-         so they will NOT re-render when count changes */}
+      {/* wrapped with React.memo and do not receive props,
+         so they will never re-render */}
       <TextOne />
       <TextTwo />
       <TextThree />

@@ -1,10 +1,8 @@
 import React from "react";
 
 /*
-React.memo prevents re-render if:
-- Props do not change
-Since this component has NO props,
-it will render only ONCE.
+Since this component has no props,
+it will render only once.
 */
 const TextOne = React.memo(() => {
   console.log("Render TextOne");

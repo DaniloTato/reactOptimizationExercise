@@ -7,13 +7,8 @@ export default function App() {
   return (
     <div style={{ padding: "20px" }}>
       <h1>React Render Optimization Demo</h1>
-
-      {/* SECTION 1 */}
       <CounterSection />
-
-      <hr />
-
-      {/* SECTION 2 */}
+      <hr/>
       <ListSection />
     </div>
   );

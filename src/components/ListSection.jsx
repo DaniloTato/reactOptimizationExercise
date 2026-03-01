@@ -7,14 +7,14 @@ export default function ListSection() {
   const [items, setItems] = useState([]);
   const [text, setText] = useState("");
 
-  // Adds new item with UNIQUE and STABLE ID
+  // We need to create unique ids
   const addItem = () => {
     if (text.trim() === "") return;
 
     setItems([
       ...items,
       {
-        id: crypto.randomUUID(), // unique & stable key
+        id: crypto.randomUUID(), // unique key
         text: text,
         likes: 0
       }
@@ -23,7 +23,11 @@ export default function ListSection() {
     setText("");
   };
 
-  // useCallback prevents function recreation
+  /* useCallback prevents function recreation
+  because we are passing this functions as params
+  for the List item component (we store the
+  function by reference thanks to useCallback) */
+
   const deleteItem = useCallback((id) => {
     setItems(prev => prev.filter(item => item.id !== id));
   }, []);
@@ -56,12 +60,11 @@ export default function ListSection() {
       <ul>
         {/*
           map() correctly used.
-          Each element has UNIQUE & STABLE key (item.id)
-          NEVER use index as key.
+          We do not use index as key.
         */}
         {items.map(item => (
           <ListItem
-            key={item.id}
+            key={item.id /* the unique id we declared on line 17*/}
             item={item}
             deleteItem={deleteItem}
             likeItem={likeItem}
