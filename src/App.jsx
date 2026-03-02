@@ -6,7 +6,7 @@ export default function App() {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h1>React Rendering Stuff :</h1>
+      <h1>React Rendering Stuff :)</h1>
       <CounterSection />
       <hr/>
       <ListSection />
